@@ -11,24 +11,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LandingPageController {
 
     @Autowired
-    private UserRepository userRepository;
+    private BuildingRepository buildingRepository;
 
     @GetMapping("/")
-    String registerPage(){
-        return "regis";
+    String landingPage(){
+        return "index";
     }
 
-    @PostMapping("/start")
-    String startPage(Model model, @RequestParam("user") String name, @RequestParam("pWord") String pWord) {
-        UserAccounts myUser = new UserAccounts(name, pWord);
-        userRepository.save(myUser);
+    @PostMapping("/navigate")
+    String resultPage(Model model, @RequestParam("start") String start, @RequestParam("goal") String goal) {
+        Building myBuilding = new Building(start, goal);
+        buildingRepository.save(myBuilding);
 
-        if (!userRepository.findByName(name).isEmpty()){
-            model.addAttribute("UserOrError",name);
+        if (!buildingRepository.findRoomByName(start).isEmpty()){
+            model.addAttribute("Start", start);
+            model.addAttribute("Goal", goal);
         }else{
             model.addAttribute("UserOrError", "Error");
         }
 
-        return "start";
+        return "result";
     }
 }
