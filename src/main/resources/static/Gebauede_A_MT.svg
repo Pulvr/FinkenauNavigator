@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SuperRoutenPlaner</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    version="1.1"
    id="svg1"
@@ -426,43 +421,3 @@
          id="tspan41"
          x="157.06798"
          y="816.75348">Ditze-Hörsaal</tspan></text></g></svg>
-
-<!-- <img src="./Gebaeude_A_-_0_blue.png" alt="Lageplan" class="responsive-image"> -->
-
-<main class="main-layout">
-    <section class="form-section">
-        <article>
-            <h1>Wo bist du gerade?</h1>
-            <select name="start-location" class="dropdown-menu">
-                <option value="" disabled selected>Bitte auswählen...</option>
-                <option value="haupteingang">Haupteingang</option>
-                <option value="e59">E59</option>
-                <option value="e39">E39</option>
-            </select>
-        </article>
-
-        <br>
-
-        <article>
-            <h1>Wo willst du hin?</h1>
-            <select name="destination" class="dropdown-menu">
-                <option value="" disabled selected>Bitte auswählen...</option>
-                <option value="haupteingang">Haupteingang</option>
-                <option value="e59">E59</option>
-                <option value="e39">E39</option>
-            </select>
-        </article>
-    </section>
-
-    <aside class="route-directions">
-        <div class="directions-container">
-            <!-- Placeholder steps -->
-            <div class="direction-step">Start at point A</div>
-            <div class="direction-step">Turn right onto Main St.</div>
-            <div class="direction-step">Continue for 3.7 miles</div>
-            <div class="direction-step">Ja, das hier macht noch nichts.</div>
-        </div>
-    </aside>
-</main>
-</body>
-</html>
