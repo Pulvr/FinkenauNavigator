@@ -6,12 +6,26 @@ body {
     background-color: #f0f0f0;
 }
 
+header {
+    background-color: #121357;
+    padding-bottom: 7rem;
+    border-radius: 2px;
+}
+
+
+footer {
+    margin-top: 1rem;
+    padding-top: 7rem;
+    background-color: #121357;
+}
+
 .responsive-image {
+    margin: 2rem auto 2rem;
     width: 100%;
+    align-items: center;
     height: auto;
     max-width: 100%;
     display: block;
-    margin-bottom: 1rem;
     border-radius: 8px;
 }
 
