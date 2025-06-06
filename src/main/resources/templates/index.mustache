@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>SuperRoutenPlaner</title>
-    <link rel="stylesheet" href="./styles.css">
+    <title>Finkenau-Navigator</title>
+    <!--link rel="stylesheet" href="./styles.css"-->
 </head>
 <body>
+
+    {{>layout/header}}
+
 <svg
    version="1.1"
    id="svg1"
@@ -427,9 +430,9 @@
          x="157.06798"
          y="816.75348">Ditze-Hörsaal</tspan></text></g></svg>
 
-<!-- <img src="./Gebaeude_A_-_0_blue.png" alt="Lageplan" class="responsive-image"> -->
 
-<main class="main-layout">
+
+<main class="search-form">
     <section class="form-section">
         <article>
             <h1>Wo bist du gerade?</h1>
@@ -452,9 +455,16 @@
                 <option value="e39">E39</option>
             </select>
         </article>
+        <br>
+        <button class="route-button">
+            <a href="result.mustache">Let's go</a>
+        </button>
     </section>
 
 
 </main>
+
+    {{>layout/footer}}
+
 </body>
 </html>
