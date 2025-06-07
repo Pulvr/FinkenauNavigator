@@ -1,5 +1,22 @@
-CREATE TABLE IF NOT EXISTS BUILDING(
-    id      long PRIMARY KEY AUTO_INCREMENT,
-    name    varchar(100) NOT NULL,
-    floor   varchar(100) NOT NULL
+
+CREATE TABLE IF NOT EXISTS BUILDING
+(
+    ID      INTEGER PRIMARY KEY AUTO_INCREMENT,
+    NAME    varchar(100) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS ROOM(
+    ID          INTEGER PRIMARY KEY AUTO_INCREMENT,
+    BUILDING_ID INTEGER NOT NULL,
+    NAME        varchar(100) NOT NULL,
+    FLOOR       varchar(100) NOT NULL,
+    FOREIGN KEY (BUILDING_ID) REFERENCES BUILDING(ID)
+);
+
+INSERT INTO BUILDING (name)
+VALUES ('Finkenau'),('Neubau');
+
+INSERT INTO ROOM(building_id,name,floor)
+VALUES (1,'E36','1'),
+       (1,'E38','1'),
+       (2,'Mensa','EG');

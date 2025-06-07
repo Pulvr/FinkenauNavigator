@@ -20,7 +20,7 @@ public class LandingPageController {
 
     @PostMapping("/navigate")
     String resultPage(Model model, @RequestParam("start") String start, @RequestParam("goal") String goal) {
-        Building myBuilding = new Building(start, goal);
+        Building myBuilding = new Building(start);
         buildingRepository.save(myBuilding);
 
         if (!buildingRepository.findRoomByName(start).isEmpty()){

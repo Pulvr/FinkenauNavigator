@@ -6,19 +6,16 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("BUILDING")
 public class Building {
     @Id
-    private long id;
+    private int id;
 
     private String name;
-
-    private String floor;
 
     public Building() {
 
     }
 
-    public Building(String name, String floor) {
+    public Building(String name) {
         this.name = name;
-        this.floor = floor;
     }
 
 }
