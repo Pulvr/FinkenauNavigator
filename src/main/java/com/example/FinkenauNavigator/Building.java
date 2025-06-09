@@ -1,5 +1,6 @@
 package com.example.FinkenauNavigator;
 
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -10,11 +11,13 @@ public class Building {
 
     private String name;
 
+    private List<Room> rooms;
+
     public Building() {
 
     }
 
-    public Building(String name) {
+    public Building(String name ) {
         this.name = name;
     }
 
