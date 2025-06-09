@@ -8,9 +8,10 @@ public class Room {
     @Id
     private long id;
     private int buildingId;
+    private boolean selectable;
     private String name;
     private String floor;
-    
+
     public Room(){
         
     }
