@@ -8,17 +8,16 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Building {
     @Id
     private int id;
-
     private String name;
-
     private List<Room> rooms;
 
     public Building() {
 
     }
 
-    public Building(String name ) {
+    public Building(String name ,List<Room> rooms) {
         this.name = name;
+        this.rooms = rooms;
     }
 
 }

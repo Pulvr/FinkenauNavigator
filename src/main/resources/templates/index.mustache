@@ -7,7 +7,6 @@
 </head>
 <body>
 <svg
-   version="1.1"
    id="svg1"
    width="1598.6667"
    height="900"
@@ -435,9 +434,9 @@
             <h1>Wo bist du gerade?</h1>
             <select name="start-location" class="dropdown-menu">
                 <option value="" disabled selected>Bitte auswählen...</option>
-                <option value="haupteingang">Haupteingang</option>
-                <option value="e59">E59</option>
-                <option value="e39">E39</option>
+                {{#allSelectableRooms}}
+                <option value={{name}}>{{name}}</option>
+                {{/allSelectableRooms}}
             </select>
         </article>
 
@@ -447,9 +446,9 @@
             <h1>Wo willst du hin?</h1>
             <select name="destination" class="dropdown-menu">
                 <option value="" disabled selected>Bitte auswählen...</option>
-                <option value="haupteingang">Haupteingang</option>
-                <option value="e59">E59</option>
-                <option value="e39">E39</option>
+                {{#allSelectableRooms}}
+                    <option value={{name}}>{{name}}</option>
+                {{/allSelectableRooms}}
             </select>
         </article>
     </section>

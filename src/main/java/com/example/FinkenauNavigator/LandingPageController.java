@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class LandingPageController {
 
@@ -14,22 +16,18 @@ public class LandingPageController {
     private BuildingRepository buildingRepository;
 
     @GetMapping("/")
-    String landingPage(){
+    String landingPage(Model model){
+        List<Room> allSelectableRooms = buildingRepository.findAllSelectableRoomsByBuildingId(1);
+        Building myBuilding = new Building("Finkenau",allSelectableRooms);
+        //for(Room room : allSelectableRooms){ System.out.println(room); }
+        model.addAttribute("allSelectableRooms",allSelectableRooms);
+
+
         return "index";
     }
 
     @PostMapping("/navigate")
-    String resultPage(Model model, @RequestParam("start") String start, @RequestParam("goal") String goal) {
-        Building myBuilding = new Building(start);
-        buildingRepository.save(myBuilding);
-
-        if (!buildingRepository.findRoomByName(start).isEmpty()){
-            model.addAttribute("Start", start);
-            model.addAttribute("Goal", goal);
-        }else{
-            model.addAttribute("UserOrError", "Error");
-        }
-
+    String resultPage() {
         return "result";
     }
 }

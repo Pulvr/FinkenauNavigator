@@ -21,4 +21,17 @@ public class Room {
         this.name = name;
         this.floor = floor;
     }
+
+    public String getFloor() {
+        return floor;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString(){
+        return "Room "+ this.getName()+ " on Floor " + this.getFloor();
+    }
 }
