@@ -1,3 +1,11 @@
 footer{
-    background-color: var(--header);
+    bottom: 5rem;
+}
+
+.footer-container{
+    background-color: var(--header-color);
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    position: static;
 }

@@ -1,0 +1,31 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Abgerundetes Icon-Frame -->
+  <rect x="0" y="0" width="1024" height="1024" rx="220" ry="220" fill="url(#bgGradient)"/>
+
+  <!-- Definitionen für Farbverläufe -->
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e0f7fa" />
+      <stop offset="100%" stop-color="#b2ebf2" />
+    </radialGradient>
+    <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00695c"/>
+      <stop offset="100%" stop-color="#004d40"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Großer Navigationspfeil in der Mitte -->
+  <polygon 
+    points="512,180 640,512 512,844 384,512" 
+    fill="url(#arrowGradient)" 
+    stroke="#002921" 
+    stroke-width="20"/>
+
+  <!-- Glanz-/Textur-Highlight -->
+  <path d="M512,200 L620,512 L512,824 L404,512 Z" 
+        fill="white" 
+        opacity="0.07"/>
+
+  <!-- Zentrumspunkt -->
+  <circle cx="512" cy="512" r="28" fill="#002921"/>
+</svg>
