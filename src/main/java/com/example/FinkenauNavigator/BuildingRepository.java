@@ -1,5 +1,7 @@
 package com.example.FinkenauNavigator;
 
+import com.example.FinkenauNavigator.classes.Building;
+import com.example.FinkenauNavigator.classes.Room;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;

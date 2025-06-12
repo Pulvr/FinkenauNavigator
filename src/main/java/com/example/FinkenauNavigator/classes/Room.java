@@ -1,4 +1,4 @@
-package com.example.FinkenauNavigator;
+package com.example.FinkenauNavigator.classes;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @Table("ROOM")
 public class Room {
     @Id
-    private long id;
+    private int id;
     private int buildingId;
     private boolean selectable;
     private String name;

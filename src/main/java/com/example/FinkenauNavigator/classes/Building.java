@@ -1,4 +1,4 @@
-package com.example.FinkenauNavigator;
+package com.example.FinkenauNavigator.classes;
 
 import java.util.List;
 import org.springframework.data.annotation.Id;
