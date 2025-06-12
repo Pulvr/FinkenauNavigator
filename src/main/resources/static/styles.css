@@ -1,32 +1,39 @@
-/* Base Styles */
-
+/* Variablen */
 :root{
-    --header: aquamarine;
-    --background: #50ADE5;
+    --header-color: #5377A9;
+    --background: #384962;
+    --form-background: aquamarine;
+    --text-color-basic: #b0ccff;
+    --button-color: #b0ffb0;
+    --map-height: 42rem;
+    --map-width: 64rem;
+
 }
 
 body {
     font-family: sans-serif;
-    margin: 0;
-    padding: 1rem;
     background-color: var(--background);
+    margin: 0;
 }
 
-/*
-
-header {
-    background-color: #121357;
-    padding-bottom: 7rem;
-    border-radius: 2px;
+main {
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
-footer {
-    margin-top: 1rem;
-    padding-top: 7rem;
-    background-color: #121357;
+/* Möglichkeit, die Karte scrollbar zu machen. Ggf. darauf zurückkommen.
+div#svg-container{
+    height: 16rem;
+    width: 16rem;
+    border:2px solid #000;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
-
-*/
+svg#svg1{
+    height: var(--map-height);
+    width: var(--map-width);
+}
+Ende scrollbare Karte */
 
 .responsive-image {
     width: 100%;
@@ -47,28 +54,38 @@ footer {
     color: #00000098;
 }
 
-
-
-h2, h6 {
+h2, h3, h6 {
     text-align: center;
+    color: var(--text-color-basic);
+}
+
+h3{
+    color: var(--text-color-basic);
 }
 
 .search-form {
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .form-section {
     flex: 1;
-    min-width: 280px;
+    min-width: 240px;
+    max-width: 1080px;
+}
+
+.button-box{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .route-button{
     padding: 0.5rem 1rem;
-    background-color: #ffffff;
+    background-color: var(--button-color);
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -112,7 +129,7 @@ h2, h6 {
     text-align: center;
 }
 
-/* Responsive layout for small screens */
+/* Responsive design for smartphone and tablet */
 @media (max-width: 768px) {
     .search-form {
         flex-direction: column;
