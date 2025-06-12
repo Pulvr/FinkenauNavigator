@@ -1,10 +1,18 @@
 /* Base Styles */
+
+:root{
+    --header: aquamarine;
+    --background: #50ADE5;
+}
+
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 1rem;
-    background-color: #f0f0f0;
+    background-color: var(--background);
 }
+
+/*
 
 header {
     background-color: #121357;
@@ -12,20 +20,21 @@ header {
     border-radius: 2px;
 }
 
-
 footer {
     margin-top: 1rem;
     padding-top: 7rem;
     background-color: #121357;
 }
 
+*/
+
 .responsive-image {
-    margin: 2rem auto 2rem;
     width: 100%;
     align-items: center;
     height: auto;
     max-width: 100%;
     display: block;
+    margin: 2rem auto 2rem;
     border-radius: 8px;
 }
 
@@ -38,11 +47,13 @@ footer {
     color: #00000098;
 }
 
-h1, h2 {
+
+
+h2, h6 {
     text-align: center;
 }
 
-.main-layout {
+.search-form {
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -55,6 +66,20 @@ h1, h2 {
     min-width: 280px;
 }
 
+.route-button{
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.route-button:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
 .route-directions {
     width: 100%;
     max-width: 320px;
@@ -64,7 +89,7 @@ h1, h2 {
     overflow-y: auto;
     flex-shrink: 0;
     box-sizing: border-box;
-    margin: 0 auto; /* Center on smaller screens too */
+    margin: 0 auto;
 }
 
 .directions-container {
@@ -89,7 +114,7 @@ h1, h2 {
 
 /* Responsive layout for small screens */
 @media (max-width: 768px) {
-    .main-layout {
+    .search-form {
         flex-direction: column;
     }
 
