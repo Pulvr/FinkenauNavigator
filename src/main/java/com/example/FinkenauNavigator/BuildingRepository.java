@@ -21,4 +21,12 @@ interface BuildingRepository extends ListCrudRepository<Building, Integer> {
             WHERE ROOM.SELECTABLE AND BUILDING.ID = (:id)
             """)
     List<Room> findAllSelectableRoomsByBuildingId(int id);
+
+    //allgemeinere Query, um alle Parameter inkl. Type zu erhalten
+    @Query("""
+        SELECT *
+        FROM ROOM
+        WHERE BUILDING_ID = :id
+        """)
+    List<Room> findAllRoomsByBuildingId(int id);
 }

@@ -3,6 +3,11 @@ package com.example.FinkenauNavigator.classes;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.ArrayList;
+import java.util.List;
+
+enum RoomType {ROOM, FLOOR, STAIRWAY, ENTRANCE}
+
 @Table("ROOM")
 public class Room {
     @Id
@@ -11,16 +16,22 @@ public class Room {
     private boolean selectable;
     private String name;
     private String floor;
+    private RoomType type;
+
+    List<Room> neighbours = new ArrayList<Room>();
 
     public Room(){
         
     }
     
-    public Room(int buildingId, String name,String floor){
+    public Room(int buildingId, String name,String floor, RoomType type){
         this.buildingId = buildingId;
         this.name = name;
         this.floor = floor;
+        this.type = type;
     }
+
+    public int getId() { return id; }
 
     public String getFloor() {
         return floor;
@@ -28,6 +39,10 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+
+    public void addNeighbour(Room neighbourRoom) {
+        neighbours.add(neighbourRoom);
     }
 
     @Override
