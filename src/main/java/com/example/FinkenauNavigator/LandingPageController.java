@@ -9,10 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class LandingPageController {
@@ -40,6 +37,13 @@ public class LandingPageController {
         return "result";
     }
 
+    @GetMapping("/testPath")
+    public String testPath(Model model) {
+        List<Room> path = findPathBFS(1, 3, 10);  // z.B. von Raum ID 3 zu 10 im Gebäude 1
+        model.addAttribute("path", path);
+        return "result"; // In Thymeleaf kannst du path dann anzeigen
+    }
+
     public Map<Integer, Room> getRoomGraph(int buildingId){
         //Alle Räume aus gleichem Gebäude holen
         List<Room> rooms = buildingRepository.findAllRoomsByBuildingId(buildingId);
@@ -64,5 +68,54 @@ public class LandingPageController {
             }
         });
         return roomMap;
+    }
+
+    public List<Room> findPathBFS(int buildingId, int startRoomId, int targetRoomId) {
+        Map<Integer, Room> roomGraph = getRoomGraph(buildingId); //erstellten Graphen lokal referenzieren
+
+        //Referenz für Start und Ziel setzen
+        Room startRoom = roomGraph.get(startRoomId);
+        Room targetRoom = roomGraph.get(targetRoomId);
+
+        //Null-Check
+        if (startRoom == null || targetRoom == null) return Collections.emptyList();
+
+        // BFS-Queue
+        Queue<Room> roomQueue = new LinkedList<>();
+        // Map, um den Weg zurückzuverfolgen
+        Map<Room, Room> parentMap = new HashMap<>();
+        // Alle bereits überprüften Räume
+        Set<Room> visitedRooms = new HashSet<>();
+
+        //Startraum hinzufügen
+        roomQueue.add(startRoom);
+        visitedRooms.add(startRoom);
+
+        //Pfadfindungs-Algorithmus
+        while (!roomQueue.isEmpty()) {
+            // Erstes Element aus der Queue entnehmen
+            Room current = roomQueue.poll();
+
+            // Rückverfolgung des Pfads, sobald Ziel erreicht ist
+            if (current.equals(targetRoom)) {
+                List<Room> path = new LinkedList<>();
+                for (Room step = targetRoom; step != null; step = parentMap.get(step)) {
+                    path.addFirst(step);
+                }
+                return path;
+            }
+
+            // Nachbarn prüfen und in Queue aufnehmen
+            for (Room neighbour : current.neighbours) {
+                if (!visitedRooms.contains(neighbour)) {
+                    visitedRooms.add(neighbour);
+                    parentMap.put(neighbour, current);
+                    roomQueue.add(neighbour);
+                }
+            }
+        }
+
+        // Kein Pfad gefunden
+        return Collections.emptyList();
     }
 }

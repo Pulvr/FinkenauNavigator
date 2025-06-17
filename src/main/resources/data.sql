@@ -29,20 +29,20 @@ VALUES ('Finkenau');
 
 INSERT INTO ROOM(building_id,SELECTABLE,name,floor, type)
 VALUES (1,1,'Haupteingang','1','Entrance'),
-       (2,1,'Eingang E57','1','Entrance'),
-       (3,1,'Fakultätsservicebüro E33','1','Room'),
-       (4,1,'Erste Hilfe E38','1','Room'),
-       (5,1,'E59','1','Room'),
-       (6,1,'E62','1','Room'),
-       (7,1,'E39','1','Room'),
-       (8,1,'E48','1','Room'),
-       (9,1,'Toilette E50','1','Room'),
-       (10,1,'Toilette E60','1','Room'),
-       (11,1,'Toilette E37','1','Room'),
-       (12,0,'Treppenhaus bei E58','1','Stairway'),
-       (13,0,'Treppenhaus bei Haupteingang','1','Stairway'),
-       (14,0,'Flur E27 - E37','1','Floor'),
-       (15,0,'Flur E58 - E68','1','Floor');
+       (1,1,'Eingang E57','1','Entrance'),
+       (1,1,'Fakultätsservicebüro E33','1','Room'),
+       (1,1,'Erste Hilfe E38','1','Room'),
+       (1,1,'E59','1','Room'),
+       (1,1,'E62','1','Room'),
+       (1,1,'E39','1','Room'),
+       (1,1,'E48','1','Room'),
+       (1,1,'Toilette E50','1','Room'),
+       (1,1,'Toilette E60','1','Room'),
+       (1,1,'Toilette E37','1','Room'),
+       (1,0,'Treppenhaus bei E58','1','Stairway'),
+       (1,0,'Treppenhaus bei Haupteingang','1','Stairway'),
+       (1,0,'Flur E27 - E37','1','Floor'),
+       (1,0,'Flur E58 - E68','1','Floor');
 
 --bidirektionale Verbindung zwischen allen Räumen festlegen, Indikator dafür die ID
 INSERT INTO ROOM_CONNECTION (FROM_ID, TO_ID) VALUES (1, 14), (14, 1);
