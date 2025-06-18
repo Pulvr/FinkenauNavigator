@@ -24,8 +24,8 @@
    sodipodi:docname="raumplan_umrissMitRaumnummern.svg"
    xml:space="preserve"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"><defs
      id="defs1" /><sodipodi:namedview
@@ -438,6 +438,7 @@
             </div>
         </figure>
 
+<<<<<<< Updated upstream
     <section class="form-section">
         <article>
             <h1>Wo bist du gerade?</h1>
@@ -468,6 +469,34 @@
 
 
 </main>
+=======
+        <section class="form-section">
+            <article>
+                <h3>Wo bist du gerade?</h3>
+                <select name="start-location" class="dropdown-menu">
+                    <option value="" disabled selected>Bitte auswählen...</option>
+                    <option value="haupteingang">Haupteingang</option>
+                    <option value="e39">E39</option>
+                    <option value="e59">E59</option>
+                </select>
+            </article>
+            <br>
+            <article>
+                <h3>Wo willst du hin?</h3>
+                <select name="destination" class="dropdown-menu">
+                    <option value="" disabled selected>Bitte auswählen...</option>
+                    <option value="haupteingang">Haupteingang</option>
+                    <option value="e59">E59</option>
+                    <option value="e39">E39</option>
+                </select>
+            </article>
+            <br>
+            <article class="button-box">
+                <button class="route-button" onclick="location.href='result.mustache'">Let's go</button>
+            </article>
+        </section>
+    </main>
+>>>>>>> Stashed changes
 
     <!--Fußnote, ggf. füllen in ./footer.mustache-->
     {{>layout/footer}}
