@@ -1,24 +1,23 @@
-package com.example.FinkenauNavigator;
+package com.example.FinkenauNavigator.classes;
 
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("BUILDING")
 public class Building {
     @Id
-    private long id;
-
+    private int id;
     private String name;
-
-    private String floor;
+    private List<Room> rooms;
 
     public Building() {
 
     }
 
-    public Building(String name, String floor) {
+    public Building(String name ,List<Room> rooms) {
         this.name = name;
-        this.floor = floor;
+        this.rooms = rooms;
     }
 
 }
