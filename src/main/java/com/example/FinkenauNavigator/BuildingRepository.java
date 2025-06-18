@@ -15,7 +15,7 @@ interface BuildingRepository extends ListCrudRepository<Building, Integer> {
     List<Building> findRoomByName(String name);
 
     @Query("""
-            SELECT ROOM.NAME,ROOM.FLOOR
+            SELECT ROOM.ID,ROOM.BUILDING_ID,ROOM.NAME,ROOM.FLOOR,ROOM.TYPE
             FROM ROOM
             JOIN BUILDING ON ROOM.BUILDING_ID = BUILDING.ID
             WHERE ROOM.SELECTABLE AND BUILDING.ID = (:id)

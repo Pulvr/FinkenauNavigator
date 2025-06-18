@@ -18,7 +18,7 @@ public class Room {
     private String floor;
     private RoomType type;
 
-    public List<Room> neighbours = new ArrayList<Room>();
+    public List<Room> neighbours = new ArrayList<>();
 
     public Room(){
         
