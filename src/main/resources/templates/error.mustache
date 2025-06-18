@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ERROR</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="icon" type="image/x-icon" href="./logo.png">
+</head>
+<body>
+
+{{>layout/header}}
+<main>
+    <center>
+        <h1>An ERROR Has Occured</h1>
+        <h1>An error has occured on this website, please check back later or contact the admin</h1>
+        <h1>Maybe the site you were looking for does not exist</h1>
+    </center>
+    <br>
+    <br>
+    <br>
+    <h2>More Information for you or the Admin of this page</h2>
+    <h2>Error {{status}}</h2>
+    <h2>{{message}}</h2>
+</main>
+
+<footer>
+    {{>layout/footer}}
+</footer>
+
+</body>
+
+
+</html>
