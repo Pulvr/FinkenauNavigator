@@ -28,7 +28,14 @@ public class LandingPageController {
     }
 
     @PostMapping("/navigate")
-    String resultPage() {
+    public String resultPage(Model model) {
+        //model.addAttribute;
+
+        return "result";
+    }
+
+    @GetMapping("/navigate")
+    public String resultPage() {
         return "result";
     }
 }

@@ -481,7 +481,7 @@
         </div>
     </figure>
 
-    <section class="form-section">
+    <form class="form-section" action="navigate" method="get">
         <article>
             <h1>Wo bist du gerade?</h1>
             <select name="start-location" class="dropdown-menu">
@@ -506,11 +506,14 @@
         <br>
         <br>
         <article class="button-box">
-            <button class="route-button" onclick="location.href='result.mustache'">Let's go</button>
+            <button type="submit" class="route-button">Let's go</button>
         </article>
         <br>
-    </section>
+    </form>
 
+    <form action="./navigate" method="get" class="button-box">
+        <button type="submit">Test me</button>
+    </form>
 
 </main>
 
