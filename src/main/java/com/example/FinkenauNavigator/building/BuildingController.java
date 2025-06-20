@@ -40,11 +40,11 @@ public class BuildingController {
         return "result";
     }
 
-    @GetMapping("/testPath")
-    public String testPath(Model model) {
+    @GetMapping("/test")
+    String testPath(Model model) {
         List<Room> path = findPathBFS(1, 3, 10);  // z.B. von Raum ID 3 zu 10 im Gebäude 1
         model.addAttribute("path", path);
-        return "result"; // In Thymeleaf kannst du path dann anzeigen
+        return "testingFile";
     }
 
     public Map<Integer, Room> getRoomGraph(int buildingId){
