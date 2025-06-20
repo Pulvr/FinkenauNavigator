@@ -1,6 +1,7 @@
 package com.example.FinkenauNavigator.classes;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class Room {
     private String floor;
     private RoomType type;
 
+    @Transient
     public List<Room> neighbours = new ArrayList<>();
 
     public Room(){
