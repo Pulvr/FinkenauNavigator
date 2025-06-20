@@ -1,4 +1,4 @@
-package com.example.FinkenauNavigator.classes;
+package com.example.FinkenauNavigator.room;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;

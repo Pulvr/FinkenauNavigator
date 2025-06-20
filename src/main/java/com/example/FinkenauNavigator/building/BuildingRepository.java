@@ -1,7 +1,6 @@
-package com.example.FinkenauNavigator;
+package com.example.FinkenauNavigator.building;
 
-import com.example.FinkenauNavigator.classes.Building;
-import com.example.FinkenauNavigator.classes.Room;
+import com.example.FinkenauNavigator.room.Room;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-interface BuildingRepository extends ListCrudRepository<Building, Integer> {
+public interface BuildingRepository extends ListCrudRepository<Building, Integer> {
 
 
     @Query("""
