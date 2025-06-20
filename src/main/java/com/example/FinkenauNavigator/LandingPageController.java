@@ -23,12 +23,8 @@ public class LandingPageController {
 
     @GetMapping("/")
     String landingPage(Model model){
-        //List<Room> allSelectableRooms = buildingRepository.findAllSelectableRoomsByBuildingId(1);
-        Building myBuilding = new Building();
-        myBuilding.setRooms(buildingRepository.findAllSelectableRoomsByBuildingId(1));
-        //for(Room room : allSelectableRooms){ System.out.println(room); }
+        Building myBuilding = new Building("Finkenau",buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(1));
         model.addAttribute("allSelectableRooms",myBuilding.getRooms());
-
 
         return "index";
     }
