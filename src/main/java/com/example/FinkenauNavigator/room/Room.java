@@ -7,10 +7,9 @@ import org.springframework.data.relational.core.mapping.Table;
 import java.util.ArrayList;
 import java.util.List;
 
-enum RoomType {ROOM, FLOOR, STAIRWAY, ENTRANCE}
-
 @Table("ROOM")
 public class Room {
+
     @Id
     private int id;
     private int buildingId;
@@ -18,19 +17,23 @@ public class Room {
     private String name;
     private String floor;
     private RoomType type;
+    private boolean onLeftSide;
+    private boolean onRightSide;
 
     @Transient
     public List<Room> neighbours = new ArrayList<>();
 
     public Room(){
-        
+
     }
-    
-    public Room(int buildingId, String name,String floor, RoomType type){
+
+    public Room(int buildingId, String name,String floor, RoomType type, boolean onLeftSide, boolean onRightSide){
         this.buildingId = buildingId;
         this.name = name;
         this.floor = floor;
         this.type = type;
+        this.onLeftSide = onLeftSide;
+        this.onRightSide = onRightSide;
     }
 
     public int getId() { return id; }
@@ -43,6 +46,12 @@ public class Room {
         return name;
     }
 
+    public RoomType getRoomType() { return type; }
+
+    public boolean isOnLeftSide() { return true; }
+
+    public boolean isOnRightSide() { return true; }
+
     public void addNeighbour(Room neighbourRoom) {
         neighbours.add(neighbourRoom);
     }
@@ -52,3 +61,4 @@ public class Room {
         return "Room "+ this.getName()+ " on Floor " + this.getFloor();
     }
 }
+
