@@ -26,7 +26,4 @@ public class Building {
         return rooms;
     }
 
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
 }

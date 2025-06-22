@@ -58,7 +58,7 @@ public class Room {
 
     @Override
     public String toString(){
-        return "Room "+ this.getName()+ " on Floor " + this.getFloor();
+        return  this.getName()+ " on Floor " + this.getFloor();
     }
 }
 

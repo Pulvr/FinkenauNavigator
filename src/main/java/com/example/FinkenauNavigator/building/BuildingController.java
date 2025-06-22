@@ -59,7 +59,7 @@ public class BuildingController {
             roomMap.put(room.getName(), room);
         }
 
-        //Nachbaren laden und in der Map abspeichern
+        //Nachbarn laden und in der Map abspeichern
         jdbcTemplate.query("SELECT * FROM ROOM_CONNECTION", (resultSet) -> {
             String fromName = resultSet.getString("FROM_NAME");
             String toName = resultSet.getString("TO_NAME");
@@ -96,7 +96,7 @@ public class BuildingController {
         roomQueue.add(startRoom);
         visitedRooms.add(startRoom);
 
-        //Pfadfindungs-Algorithmus
+        //Pfadfindungsalgorithmus
         while (!roomQueue.isEmpty()) {
             // Erstes Element aus der Queue entnehmen
             Room current = roomQueue.poll();
@@ -137,7 +137,7 @@ public class BuildingController {
         for (int i = 0; i < path.size() - 1; i++) {
 
             //Potenzielle Kantentypen
-            //Startraum -> Flur
+            //Startraum → Flur
             if (path.get(i).getRoomType() == RoomType.ROOM && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
                 if (path.getLast().getId() > path.get(i).getId() && path.get(i).isOnRightSide()) {
                     result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
@@ -150,7 +150,7 @@ public class BuildingController {
                 }
             }
 
-            //Flur -> Flur
+            //Flur → Flur
             if (path.get(i).getRoomType() == RoomType.FLOOR && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
                 if ((path.get(i).getName().equals(("Flur E27 - E37")))) {
                     result.add(String.format(floorToFloor, path.get(i).getName(), "links", path.get(i + 1).getName()));

@@ -33,7 +33,7 @@ VALUES ('Finkenau');
 -- Sortierung der Tabelle wird manuell anhand ihrer Position in Relation zum Haupteingang hergestellt und so wird die Tabelle ebenfalls befüllt.
 -- Ist ein Raum gemäß der Übersichtskarte rechts vom Haupteingang, so ist die ID höher. Ist der Raum links vom Haupteingang, so ist die ID niedriger.
 -- Da die IDs automatisch erhöht werden, reicht es einen Raum also anhand der Relation auf der Karte zu platzieren, eine manuelle Änderung darf nicht gemacht werden!
--- Flure werden immer vor allen an sie verbundenen Räume gesetzt und haben damit die kleinste ID in Bezug auf alle angeschlossenen Räume
+-- Flure werden immer vor allen an die verbundenen Räume gesetzt und haben damit die kleinste ID in Bezug auf alle angeschlossenen Räume
 INSERT INTO ROOM(building_id,selectable,name,floor, type, on_left_side, on_right_side)
 VALUES (1,0,'Treppenhaus bei Haupteingang','1','STAIRWAY',1,0),
        (1,1,'Haupteingang','1','ENTRANCE',1,0),
