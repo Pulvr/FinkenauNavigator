@@ -31,10 +31,4 @@ public class BuildingController {
     public String resultPage() {
         return "result";
     }
-
-
-
-
-
 }
-

@@ -1,7 +1,6 @@
 package com.example.FinkenauNavigator.navigation;
 
 import com.example.FinkenauNavigator.room.Room;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,7 @@ public class NavigationController {
 
     private final Navigator navigator;
 
-    @Autowired
+    //autowired entfernt, wird nur für Repositories verwendet
     public NavigationController(Navigator navigator) {
         this.navigator = navigator;
     }
@@ -21,7 +20,7 @@ public class NavigationController {
     @GetMapping("/test")
     String testPath(Model model) {
 
-        List<Room> path = navigator.findPathBFS(1, "Toilette E37", "E62");
+        List<Room> path = navigator.findPathBFS(1, "Haupteingang", "E62");
         List<String> pathAsStrings = navigator.convertPathToStringList(path);
         model.addAttribute("path", pathAsStrings);
         return "testingFile";

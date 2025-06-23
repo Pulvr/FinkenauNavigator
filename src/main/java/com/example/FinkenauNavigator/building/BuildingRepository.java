@@ -10,7 +10,6 @@ import java.util.List;
 @Repository
 public interface BuildingRepository extends ListCrudRepository<Building, Integer> {
 
-
     @Query("""
             SELECT ROOM.NAME,ROOM.FLOOR
             FROM ROOM
@@ -21,9 +20,9 @@ public interface BuildingRepository extends ListCrudRepository<Building, Integer
 
     //allgemeinere Query, um alle Parameter inkl. Type zu erhalten
     @Query("""
-        SELECT *
-        FROM ROOM
-        WHERE BUILDING_ID = :id
-        """)
+            SELECT *
+            FROM ROOM
+            WHERE BUILDING_ID = :id
+            """)
     List<Room> findAllRoomsByBuildingId(int id);
 }

@@ -40,8 +40,16 @@ public class Navigator {
             Room from = roomMap.get(fromName);
             Room to = roomMap.get(toName);
 
-            if (from != null && to != null) {
+          //  if (from != null && to != null) {
+          //    from.addNeighbour(to);
+          //    to.addNeighbour(from);
+          //  }
+
+            //contains check, sonst wurden die Räume alle doppelt geaddet
+            if(from != null && !from.neighbours.contains(to)){
                 from.addNeighbour(to);
+            }
+            if(to != null && !to.neighbours.contains(from)){
                 to.addNeighbour(from);
             }
         });
