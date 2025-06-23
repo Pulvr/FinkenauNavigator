@@ -1,7 +1,5 @@
 package com.example.FinkenauNavigator.navigation;
 
-import com.example.FinkenauNavigator.navigation.Navigator;
-import com.example.FinkenauNavigator.building.BuildingRepository;
 import com.example.FinkenauNavigator.room.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
