@@ -1,0 +1,28 @@
+package com.example.FinkenauNavigator.navigation;
+
+import com.example.FinkenauNavigator.room.Room;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
+
+@Controller
+public class NavigationController {
+
+    private final Navigator navigator;
+
+    //autowired entfernt, wird nur für Repositories verwendet
+    public NavigationController(Navigator navigator) {
+        this.navigator = navigator;
+    }
+
+    @GetMapping("/test")
+    String testPath(Model model) {
+
+        List<Room> path = navigator.findPathBFS(1, "Haupteingang", "E62");
+        List<String> pathAsStrings = navigator.convertPathToStringList(path);
+        model.addAttribute("path", pathAsStrings);
+        return "testingFile";
+    }
+}

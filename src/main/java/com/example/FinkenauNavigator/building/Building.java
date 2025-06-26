@@ -1,6 +1,8 @@
-package com.example.FinkenauNavigator.classes;
+package com.example.FinkenauNavigator.building;
 
 import java.util.List;
+
+import com.example.FinkenauNavigator.room.Room;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -24,7 +26,4 @@ public class Building {
         return rooms;
     }
 
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
 }

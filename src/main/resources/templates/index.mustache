@@ -6,12 +6,48 @@
 
 <body>
 
-<!--Top-Bar mit Logo-->
-{{>layout/header}}
+    <!--Top-Bar mit Logo-->
+    {{>layout/header}}
 
-<!--Suchformular-->
-<main class="search-form">
+    <!--Suchformular-->
+    <main class="search-form">
 
+    <!--Grundriss als Vektorgrafik-->
+    <figure lang="de" about="grundriss altbau">
+        <div id="svg-container">
+            <svg class="responsive-image"
+                 version="1.1"
+                 id="svg1"
+                 width="1598.6667"
+                 height="900"
+                 viewBox="0 0 1598.6667 900"
+                 sodipodi:docname="raumplan_umrissMitRaumnummern.svg"
+                 xml:space="preserve"
+                 inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+                 xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape"
+                 xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" />
+                <sodipodi:namedview
+                        id="namedview1"
+                        pagecolor="#505050"
+                        bordercolor="#eeeeee"
+                        borderopacity="1"
+                        inkscape:showpageshadow="0"
+                        inkscape:pageopacity="0"
+                        inkscape:pagecheckerboard="0"
+                        inkscape:deskcolor="#505050"
+                        inkscape:zoom="0.92316718"
+                        inkscape:cx="785.88149"
+                        inkscape:cy="613.64833"
+                        inkscape:window-width="2560"
+                        inkscape:window-height="1377"
+                        inkscape:window-x="-8"
+                        inkscape:window-y="-8"
+                        inkscape:window-maximized="1"
+                        inkscape:current-layer="g1"
+                        showguides="true"><inkscape:page
     <!--Grundriss als Vektorgrafik-->
     <figure lang="de" about="grundriss altbau">
         <div id="svg-container">
@@ -481,7 +517,7 @@
         </div>
     </figure>
 
-    <section class="form-section">
+    <form class="form-section" action="navigate" method="get">
         <article>
             <h1>Wo bist du gerade?</h1>
             <select name="start-location" class="dropdown-menu">
@@ -503,11 +539,13 @@
                 {{/allSelectableRooms}}
             </select>
         </article>
+        <br>
+        <br>
         <article class="button-box">
-            <button class="route-button" onclick="location.href='result.mustache'"> Drück mich feste</button>
+            <button type="submit" class="route-button">Let's go</button>
         </article>
         <br>
-    </section>
+    </form>
 
 
 </main>
