@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BuildingController {
@@ -22,7 +23,7 @@ public class BuildingController {
     }
 
     @PostMapping("/navigate")
-    public String resultPage(Model model) {
+    public String resultPage(Model model, @RequestParam("start-location") String start, @RequestParam("destination") String destination) {
         //model.addAttribute;
         return "result";
     }
