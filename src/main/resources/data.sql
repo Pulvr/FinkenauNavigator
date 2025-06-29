@@ -25,7 +25,7 @@ VALUES (1,0,'Treppenhaus bei Haupteingang','1','STAIRWAY',1,0),
        (1,1,'E62','1','ROOM',0,1);
 
 --bidirektionale Verbindung zwischen allen Räumen via Raumnamen
-INSERT INTO ROOM_CONNECTION (FROM_NAME, TO_NAME)
+INSERT INTO NAVIGATOR (FROM_NAME, TO_NAME)
 VALUES ('Haupteingang', 'Flur E27 - E57'), ('Flur E27 - E57', 'Haupteingang'),
        ('Eingang E57', 'Flur E27 - E57'), ('Flur E27 - E57', 'Eingang E57'), ('Eingang E57', 'Flur E58 - E68'), ('Flur E58 - E68','Eingang E57'),
        ('Fakultätsservicebüro E33', 'Flur E27 - E57'), ('Flur E27 - E57', 'Fakultätsservicebüro E33'),
