@@ -12,5 +12,5 @@ public interface NavigationRepository extends CrudRepository<Navigator,Integer> 
     @Query("""
           SELECT FROM_NAME,TO_NAME FROM NAVIGATOR
           """)
-    List<Navigator> findAll();
+    List<Navigator> findAllConnections();
 }

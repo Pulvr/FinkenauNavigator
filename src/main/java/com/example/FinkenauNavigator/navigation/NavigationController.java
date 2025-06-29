@@ -23,7 +23,7 @@ public class NavigationController {
     }
     @GetMapping("/test")
     String testPath(Model model) {
-
+        //von "navigationcontroller" auf "this" geändert. Hat sich sonst über rekursiven Aufruf beschwert. Macht ja auch Sinn irgendwo.
         List<Room> path = this.findPathBFS(1, "E62", "Haupteingang");
         List<String> pathAsStrings = this.convertPathToStringList(path);
         model.addAttribute("path", pathAsStrings);
@@ -31,9 +31,9 @@ public class NavigationController {
     }
 
     public Map<String, Room> getRoomGraph(int buildingId) {
-        //Alle Räume aus gleichem Gebäude holen
+        //Alle Räume aus gleichem Gebäude holen, refactored um repository zu verwenden
         List<Room> rooms = buildingRepository.findAllRoomsByBuildingId(buildingId);
-        List<Navigator> allConnections = navigationRepository.findAll();
+        List<Navigator> allConnections = navigationRepository.findAllConnections();
         Room from,to;
 
         //Map für schnellen Zugriff erstellen und alle Objekte ablegen
@@ -41,10 +41,10 @@ public class NavigationController {
         for (Room room : rooms) {
             roomMap.put(room.getName(), room);
         }
+        //Hier selbe Logik wie mit der jdbcQuery, nur das wir alle Connections aus einer Liste durchgehen.
         for(Navigator nav : allConnections){
             from = roomMap.get(nav.getFromName());
             to = roomMap.get(nav.getToName());
-            //contains check, sonst wurden die Räume alle doppelt geaddet
             if(from != null && !from.neighbours.contains(to)){
                 from.addNeighbour(to);
             }

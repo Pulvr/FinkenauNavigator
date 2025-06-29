@@ -4,6 +4,10 @@ package com.example.FinkenauNavigator.navigation;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+/**
+ * Navigator soll auch so wie ein Navigationsergebnis sein.
+ * Beinhaltet auch Informationen über die Verbindung der Räume.
+ */
 @Table("NAVIGATOR")
 public class Navigator {
     @Id
