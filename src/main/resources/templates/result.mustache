@@ -8,17 +8,17 @@
 
 {{>layout/header}}
 
-<h1> Navigieren von : <!--{{!Start}} nach {{!Goal}}--> Start nach Ziel</h1>
+<h1> Navigieren von: {{start}} nach {{goal}}</h1>
 {{>layout/map}}
 
 <aside class="route-directions">
-    <div class="directions-container">
-        {{!#allNavigationSteps}}
-        <div class="direction-step" content={{!step}}>{{!step}}Step List</div>
-        {{!/allNavigationSteps}}
-        <div class="direction-step">Step 1</div>
-        <div class="direction-step">Step 2</div>
-    </div>
+    {{#path}}
+        <div class="direction-step">{{.}}</div>
+    {{/path}}
+
+    {{^path}}
+        <p class="error-message">Keine Route gefunden.</p>
+    {{/path}}
 </aside>
 
 <!--Fußnote, ggf. füllen in ./footer.mustache-->

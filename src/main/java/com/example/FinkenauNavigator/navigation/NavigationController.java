@@ -21,14 +21,15 @@ public class NavigationController {
         this.buildingRepository = buildingRepository;
         this.navigationRepository = navigationRepository;
     }
-    @GetMapping("/test")
-    String testPath(Model model) {
-        //von "navigationcontroller" auf "this" geändert. Hat sich sonst über rekursiven Aufruf beschwert. Macht ja auch Sinn irgendwo.
-        List<Room> path = this.findPathBFS(1, "E62", "Haupteingang");
-        List<String> pathAsStrings = this.convertPathToStringList(path);
-        model.addAttribute("path", pathAsStrings);
-        return "testingFile";
-    }
+
+//    @GetMapping("/test")
+//    String testPath(Model model) {
+//        //von "navigationcontroller" auf "this" geändert. Hat sich sonst über rekursiven Aufruf beschwert. Macht ja auch Sinn irgendwo.
+//        List<Room> path = this.findPathBFS(1, "Toilette E60", "E39");
+//        List<String> pathAsStrings = this.convertPathToStringList(path);
+//        model.addAttribute("path", pathAsStrings);
+//        return "testingFile";
+//    }
 
     public Map<String, Room> getRoomGraph(int buildingId) {
         //Alle Räume aus gleichem Gebäude holen, refactored um repository zu verwenden
@@ -55,6 +56,7 @@ public class NavigationController {
         return roomMap;
     }
 
+    //Aufruf mit buildingId in aktueller Iteration redundant, da dieser Wert im Aufruf fest auf 1 ist. Bei Hinzufügen von weiteren Gebäuden in der Datenbank müsste dies überarbeitet werden.
     public List<Room> findPathBFS(int buildingId, String startRoomName, String targetRoomName) {
         Map<String, Room> roomGraph = getRoomGraph(buildingId); //erstellten Graphen lokal referenzieren
 
@@ -109,6 +111,8 @@ public class NavigationController {
         String floorToFloor = "Folge dem %s und biege am Ende %s ab, um in %s zu gelangen.";
         String floorToRoom = " %s befindet sich auf der %s Seite.";
         String entranceToFloor = "Betrete das Gebäude durch den %s und betrete %s.";
+        String floorToEntrance = "Der %s ist vom Ende von %s aus sichtbar.";
+        String floorToMainEntrance = "Der Haupteingang befindet sich hinter der Holztür auf der linken Seite.";
         String stairwayToMainEntrance = "Biege am Ende von %s nach links ab. Du solltest den %s nun sehen können.";
         String stairwayToFloor = "Biege am Ende von %s nach s% ab und folge dem %s.";
 
@@ -120,13 +124,31 @@ public class NavigationController {
             //Startraum → Flur
             if (path.get(i).getRoomType() == RoomType.ROOM && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
                 if (path.getLast().getId() > path.get(i).getId() && path.get(i).isOnRightSide()) {
-                    result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                    if(path.getLast().getName().equals("Eingang E57")){
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                    }
+                    else {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                    }
                 } else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnRightSide()) {
-                    result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                    if (path.getLast().getName().equals("Eingang E57")) {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                    } else {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                    }
                 } else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnLeftSide()) {
-                    result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                    if(path.getLast().getName().equals("Eingang E57")) {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                    } else {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                    }
                 } else {
-                    result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                    if(path.getLast().getName().equals("Eingang E57")) {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                    }
+                    else {
+                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                    }
                 }
             }
 
@@ -150,9 +172,9 @@ public class NavigationController {
                 }
                 //String.format für "invertierte" Ausrichtung (siehe Kommentare in Datenbank)
                 else if (path.getFirst().getId() > path.get(i).getId() && path.get(i).isOnLeftSide()) {
-                    result.add(String.format(floorToRoom, "rechten"));
+                    result.add(String.format(floorToRoom, path.get(i + 1).getName(), "rechten"));
                 } else if (path.getFirst().getId() > path.get(i).getId() && path.get(i).isOnRightSide()) {
-                    result.add(String.format(floorToRoom, "linken"));
+                    result.add(String.format(floorToRoom, path.get(i + 1).getName(), "linken"));
                 }
             }
 
@@ -167,6 +189,15 @@ public class NavigationController {
                     result.add(String.format(stairwayToFloor, path.get(i).getName(),"rechts", path.get(i + 1).getName()));
                 } else {
                     result.add(String.format(roomToFloor,path.get(i).getName(), "links", path.get(i + 1).getName()));
+                }
+            }
+
+            //Flur - Eingang
+            if(path.get(i).getRoomType() == RoomType.FLOOR && path.get(i + 1).getRoomType() == RoomType.ENTRANCE) {
+                if(path.get(i + 1).getName().equals("Haupteingang")) {
+                    result.add(String.format(floorToMainEntrance));
+                } else {
+                    result.add(String.format(floorToEntrance, path.get(i + 1).getName(), path.get(i).getName()));
                 }
             }
 

@@ -18,11 +18,11 @@ VALUES (1,0,'Treppenhaus bei Haupteingang','1','STAIRWAY',1,0),
        (1,1,'Toilette E50','1','ROOM',1,0),
        (1,1,'Eingang E57','1','ENTRANCE',0,1),
        --Alle Räume, die an Flur E58 - E68 angeschlossen sind
-       (1,0,'Flur E58 - E68','1','FLOOR',null,null),
-       (1,0,'Treppenhaus bei E58','1','STAIRWAY',1,0),
-       (1,1,'E59','1','ROOM',0,1),
-       (1,1,'Toilette E60','1','ROOM',1,0),
-       (1,1,'E62','1','ROOM',0,1);
+       (1,0,'Flur E58 - E68','2','FLOOR',null,null),
+       (1,0,'Treppenhaus bei E58','2','STAIRWAY',1,0),
+       (1,1,'E59','2','ROOM',0,1),
+       (1,1,'Toilette E60','2','ROOM',1,0),
+       (1,1,'E62','2','ROOM',0,1);
 
 --bidirektionale Verbindung zwischen allen Räumen via Raumnamen
 INSERT INTO NAVIGATOR (FROM_NAME, TO_NAME)
