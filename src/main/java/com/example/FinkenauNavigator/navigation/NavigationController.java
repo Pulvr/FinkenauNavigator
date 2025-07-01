@@ -5,8 +5,6 @@ import com.example.FinkenauNavigator.room.Room;
 import com.example.FinkenauNavigator.room.RoomType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.*;
 
@@ -21,15 +19,6 @@ public class NavigationController {
         this.buildingRepository = buildingRepository;
         this.navigationRepository = navigationRepository;
     }
-
-//    @GetMapping("/test")
-//    String testPath(Model model) {
-//        //von "navigationcontroller" auf "this" geändert. Hat sich sonst über rekursiven Aufruf beschwert. Macht ja auch Sinn irgendwo.
-//        List<Room> path = this.findPathBFS(1, "Toilette E60", "E39");
-//        List<String> pathAsStrings = this.convertPathToStringList(path);
-//        model.addAttribute("path", pathAsStrings);
-//        return "testingFile";
-//    }
 
     public Map<String, Room> getRoomGraph(int buildingId) {
         //Alle Räume aus gleichem Gebäude holen, refactored um repository zu verwenden

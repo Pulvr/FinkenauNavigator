@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -28,12 +27,6 @@ public class BuildingController {
 
         return "index";
     }
-
-//    @PostMapping("/navigate")
-//    public String resultPage(Model model) {
-//        //model.addAttribute;
-//        return "result";
-//    }
 
     //not sure if this should stay in here or move to NavigationController
     @GetMapping("/navigate")
