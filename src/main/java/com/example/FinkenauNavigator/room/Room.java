@@ -19,6 +19,8 @@ public class Room {
     private RoomType type;
     private boolean onLeftSide;
     private boolean onRightSide;
+    private double xCoordinate;
+    private double yCoordinate;
 
     @Transient
     public List<Room> neighbours = new ArrayList<>();
