@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="89"
+   viewBox="0 0 64 89"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="Flagge.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="5.12"
+     inkscape:cx="35.742188"
+     inkscape:cy="49.804688"
+     inkscape:window-width="1440"
+     inkscape:window-height="890"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern503"
+       preserveAspectRatio="xMidYMid"
+       id="pattern510"
+       patternTransform="matrix(0.12975195,0,0,0.12975195,24.799346,31.273495)"
+       x="-4"
+       y="25" />
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#pattern502"
+       preserveAspectRatio="xMidYMid"
+       id="pattern504"
+       patternTransform="scale(1)" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="100"
+       patternTransform="translate(400,400)"
+       preserveAspectRatio="xMidYMid"
+       id="pattern502"
+       inkscape:label="pattern502">
+      <g
+         id="g502"
+         transform="translate(-400,-400)">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.8"
+           id="rect110"
+           width="50"
+           height="50"
+           x="400"
+           y="400"
+           ry="0"
+           inkscape:tile-cx="487.5"
+           inkscape:tile-cy="200"
+           inkscape:tile-w="50"
+           inkscape:tile-h="50"
+           inkscape:tile-x0="462.5"
+           inkscape:tile-y0="175" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke-width:0.8"
+           id="rect500"
+           width="50"
+           height="50"
+           x="450"
+           y="400"
+           ry="0"
+           inkscape:tile-cx="487.5"
+           inkscape:tile-cy="200"
+           inkscape:tile-w="50"
+           inkscape:tile-h="50"
+           inkscape:tile-x0="462.5"
+           inkscape:tile-y0="175" />
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke-width:0.8"
+           id="rect501"
+           width="50"
+           height="50"
+           x="400"
+           y="450"
+           ry="0"
+           inkscape:tile-cx="487.5"
+           inkscape:tile-cy="200"
+           inkscape:tile-w="50"
+           inkscape:tile-h="50"
+           inkscape:tile-x0="462.5"
+           inkscape:tile-y0="175" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke-width:0.8"
+           id="rect502"
+           width="50"
+           height="50"
+           x="450"
+           y="450"
+           ry="0"
+           inkscape:tile-cx="487.5"
+           inkscape:tile-cy="200"
+           inkscape:tile-w="50"
+           inkscape:tile-h="50"
+           inkscape:tile-x0="462.5"
+           inkscape:tile-y0="175" />
+      </g>
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="100"
+       patternTransform="translate(400,400)"
+       preserveAspectRatio="xMidYMid"
+       id="pattern503"
+       inkscape:label="pattern503">
+      <rect
+         style="fill:url(#pattern504);stroke:none"
+         width="100"
+         height="100"
+         x="0"
+         y="0"
+         id="rect503" />
+    </pattern>
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="613.44867"
+       height="487.97513"
+       patternTransform="translate(189.74171,85.83506)"
+       preserveAspectRatio="xMidYMid"
+       id="pattern505"
+       inkscape:label="pattern505">
+      <rect
+         style="display:inline;fill:#bfbfbf;stroke-width:0.957892"
+         id="rect504"
+         width="613.44867"
+         height="487.97513"
+         x="0"
+         y="0"
+         ry="4.5819259"
+         inkscape:tile-cx="491.77855"
+         inkscape:tile-cy="329.82262"
+         inkscape:tile-w="647.82367"
+         inkscape:tile-h="503.60013"
+         inkscape:tile-x0="167.86671"
+         inkscape:tile-y0="78.02256" />
+    </pattern>
+  </defs>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="display:inline;fill:#5e5e5e;fill-opacity:1;stroke-width:0.0926801"
+       id="rect1"
+       width="4.3825016"
+       height="88.745659"
+       x="0.10810089"
+       y="0.11788558" />
+    <rect
+       style="display:inline;fill:#ababab;fill-opacity:1;stroke-width:0.0926801"
+       id="rect2"
+       width="60.040268"
+       height="46.673645"
+       x="3.6141014"
+       y="1.4326363"
+       ry="0.43825015"
+       inkscape:tile-cx="491.77855"
+       inkscape:tile-cy="329.82262"
+       inkscape:tile-w="647.82367"
+       inkscape:tile-h="503.60013"
+       inkscape:tile-x0="167.86671"
+       inkscape:tile-y0="78.02256" />
+    <rect
+       style="display:inline;fill:url(#pattern510);fill-opacity:1;stroke:none;stroke-width:0.0933864"
+       width="57.72327"
+       height="45.225513"
+       x="4.8781757"
+       y="2.1566987"
+       id="rect505"
+       ry="0" />
+  </g>
+</svg>
