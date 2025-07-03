@@ -36,7 +36,7 @@ VALUES ('Haupteingang', 'Flur E27 - E57'), ('Flur E27 - E57', 'Haupteingang'),
        ('E48', 'Flur E27 - E57'), ('Flur E27 - E57', 'E48'),
        ('Toilette E50', 'Flur E27 - E57'), ('Flur E27 - E57', 'Toilette E50'),
        ('Toilette E60', 'Flur E58 - E68'), ('Flur E58 - E68', 'Toilette E60'),
-       ('Toilette E57', 'Flur E27 - E57'), ('Flur E27 - E57', 'Toilette E57'),
+       ('Toilette E37', 'Flur E27 - E57'), ('Flur E27 - E57', 'Toilette E57'),
        ('Treppenhaus bei E58', 'Flur E58 - E68'), ('Flur E58 - E68', 'Treppenhaus bei E58'),
        ('Treppenhaus bei Haupteingang', 'Flur E27 - E57'), ('Flur E27 - E57', 'Treppenhaus bei Haupteingang'),
        ('Flur E58 - E68', 'Flur E27 - E57'), ('Flur E27 - E57', 'Flur E58 - E68');
