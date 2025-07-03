@@ -113,37 +113,31 @@ public class NavigationController {
             //Startraum → Flur
             if (path.get(i).getRoomType() == RoomType.ROOM && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
                 if (path.getLast().getId() > path.get(i).getId() && path.get(i).isOnRightSide()) {
-                    if(path.getLast().getName().equals("Eingang E57")){
+                    if (path.getLast().getName().equals("Eingang E57")) {
                         result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
-                    }
-                    else {
+                    } else {
                         result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
                     }
                 } else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnRightSide()) {
+                    result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
+                }
+                else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnLeftSide()) {
                     if (path.getLast().getName().equals("Eingang E57")) {
-                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
-                    } else {
-                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
-                    }
-                } else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnLeftSide()) {
-                    if(path.getLast().getName().equals("Eingang E57")) {
                         result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
                     } else {
                         result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
                     }
                 } else {
-                    if(path.getLast().getName().equals("Eingang E57")) {
+                    if (path.getLast().getName().equals("Eingang E57")) {
                         result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
-                    }
-                    else {
+                    } else {
                         result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
                     }
                 }
             }
-
             //Flur → Flur
             if (path.get(i).getRoomType() == RoomType.FLOOR && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
-                if ((path.get(i).getName().equals(("Flur E27 - E37")))) {
+                if ((path.get(i).getName().equals(("Flur E27 - E57")))) {
                     result.add(String.format(floorToFloor, path.get(i).getName(), "links", path.get(i + 1).getName()));
                 } else {
                     result.add(String.format(floorToFloor, path.get(i).getName(), "rechts", path.get(i + 1).getName()));
