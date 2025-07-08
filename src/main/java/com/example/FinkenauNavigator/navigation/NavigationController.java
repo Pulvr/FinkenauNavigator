@@ -112,12 +112,9 @@ public class NavigationController {
             //Startraum → Flur
             if (path.get(i).getRoomType() == RoomType.ROOM && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
                 if (path.getLast().getId() > path.get(i).getId() && path.get(i).isOnRightSide()) {
-                    if (path.getLast().getName().equals("Eingang E57")) {
-                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
-                    } else {
-                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
-                    }
-                } else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnRightSide()) {
+                    result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                }
+                else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnRightSide()) {
                     result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
                 }
                 else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnLeftSide()) {
