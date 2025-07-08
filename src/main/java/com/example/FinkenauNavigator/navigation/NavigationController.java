@@ -14,7 +14,6 @@ public class NavigationController {
     private final NavigationRepository navigationRepository;
     private final BuildingRepository buildingRepository;
 
-    @Autowired
     public NavigationController(BuildingRepository buildingRepository, NavigationRepository navigationRepository) {
         this.buildingRepository = buildingRepository;
         this.navigationRepository = navigationRepository;
