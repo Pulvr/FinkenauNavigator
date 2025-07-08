@@ -35,10 +35,10 @@ public class NavigationController {
         for(Navigator nav : allConnections){
             from = roomMap.get(nav.getFromName());
             to = roomMap.get(nav.getToName());
-            if(from != null && !from.neighbours.contains(to)){
+            if(from != null && !from.getNeighbours().contains(to)){
                 from.addNeighbour(to);
             }
-            if(to != null && !to.neighbours.contains(from)){
+            if(to != null && !to.getNeighbours().contains(from)){
                 to.addNeighbour(from);
             }
         }
@@ -82,7 +82,7 @@ public class NavigationController {
             }
 
             // Nachbarn prüfen und in Queue aufnehmen
-            for (Room neighbour : current.neighbours) {
+            for (Room neighbour : current.getNeighbours()) {
                 if (!visitedRooms.contains(neighbour)) {
                     visitedRooms.add(neighbour);
                     parentMap.put(neighbour, current);

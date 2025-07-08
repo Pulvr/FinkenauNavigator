@@ -21,7 +21,7 @@ public class Room {
     private boolean onRightSide;
 
     @Transient
-    public List<Room> neighbours = new ArrayList<>();
+    private List<Room> neighbours = new ArrayList<>();
 
     public Room(){
 
@@ -54,6 +54,10 @@ public class Room {
 
     public void addNeighbour(Room neighbourRoom) {
         neighbours.add(neighbourRoom);
+    }
+
+    public List<Room> getNeighbours(){
+        return this.neighbours;
     }
 
     @Override
