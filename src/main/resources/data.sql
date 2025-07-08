@@ -18,14 +18,14 @@ VALUES (1,0,'Treppenhaus bei Haupteingang','1','STAIRWAY',1,0, 515.0, 705.0),
        (1,1,'Toilette E50','1','ROOM',1,0, 1190.0, 700.0),
        (1,1,'Eingang E57','1','ENTRANCE',0,1, 1505.0, 765.0),
        --Alle Räume, die an Flur E58 - E68 angeschlossen sind
-       (1,0,'Flur E58 - E68','1','FLOOR',null,null, 0.0, 0.0),
-       (1,0,'Treppenhaus bei E58','1','STAIRWAY',1,0, 1340.0, 710.0),
-       (1,1,'E59','1','ROOM',0,1, 1460.0, 610.0),
-       (1,1,'Toilette E60','1','ROOM',1,0, 1350.0, 535.0),
-       (1,1,'E62','1','ROOM',0,1, 1460.0, 430.0);
+       (1,0,'Flur E58 - E68','2','FLOOR',null,null, 0.0, 0.0),
+       (1,0,'Treppenhaus bei E58','2','STAIRWAY',1,0, 1340.0, 710.0),
+       (1,1,'E59','2','ROOM',0,1, 1460.0, 610.0),
+       (1,1,'Toilette E60','2','ROOM',1,0, 1350.0, 535.0),
+       (1,1,'E62','2','ROOM',0,1, 1460.0, 430.0);
 
 --bidirektionale Verbindung zwischen allen Räumen via Raumnamen
-INSERT INTO ROOM_CONNECTION (FROM_NAME, TO_NAME)
+INSERT INTO NAVIGATOR (FROM_NAME, TO_NAME)
 VALUES ('Haupteingang', 'Flur E27 - E57'), ('Flur E27 - E57', 'Haupteingang'),
        ('Eingang E57', 'Flur E27 - E57'), ('Flur E27 - E57', 'Eingang E57'), ('Eingang E57', 'Flur E58 - E68'), ('Flur E58 - E68','Eingang E57'),
        ('Fakultätsservicebüro E33', 'Flur E27 - E57'), ('Flur E27 - E57', 'Fakultätsservicebüro E33'),
