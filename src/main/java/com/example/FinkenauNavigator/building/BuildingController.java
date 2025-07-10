@@ -38,8 +38,7 @@ public class BuildingController {
 
         return "index";
     }
-
-    @GetMapping("/navigate")
+    @PostMapping("/navigate")
     public String resultPage(@RequestParam("start-location") String startLocation, @RequestParam("destination") String destination, Model model) {
         //Routenschritte berechnen und als Liste zurückgeben lassen
         List<Room> path = navigationController.findPathBFS(1, startLocation, destination);
@@ -58,11 +57,10 @@ public class BuildingController {
 
         return "result";
     }
-    //TODO FIX POSTMAPPING AND GETMAPPING
-//    @GetMapping("/navigate")
-//    String resultPage(Model model){
-//        Building myBuilding = new Building("Finkenau", buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(1));
-//        model.addAttribute("allSelectableRooms", myBuilding.getRooms());
-//        return "index";
-//    }
+    @GetMapping("/navigate")
+    String resultPage(Model model){
+        Building myBuilding = new Building("Finkenau", buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(1));
+        model.addAttribute("allSelectableRooms", myBuilding.getRooms());
+        return "index";
+    }
 }
