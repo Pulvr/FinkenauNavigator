@@ -3,6 +3,7 @@ package com.example.FinkenauNavigator.building;
 import com.example.FinkenauNavigator.room.Room;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,4 +26,19 @@ public interface BuildingRepository extends ListCrudRepository<Building, Integer
             WHERE BUILDING_ID = :id
             """)
     List<Room> findAllRoomsByBuildingId(int id);
+
+    //Query für die Übergabe der Koordinaten
+    @Query("""
+                SELECT XCOORDINATE 
+                FROM ROOM 
+                WHERE ROOM.NAME = :room
+            """)
+    double getXCoordinate(String room);
+
+    @Query("""
+                SELECT YCOORDINATE 
+                FROM ROOM 
+                WHERE ROOM.NAME = :room
+            """)
+    double getYCoordinate(String room);
 }

@@ -58,10 +58,6 @@ public class Room {
         neighbours.add(neighbourRoom);
     }
 
-    public double getXCoordinate () { return xCoordinate; }
-
-    public double getYCoordinate() { return yCoordinate; }
-
     @Override
     public String toString(){
         return  this.getName()+ " on Floor " + this.getFloor();

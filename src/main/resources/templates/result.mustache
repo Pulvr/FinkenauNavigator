@@ -5,25 +5,41 @@
 {{>layout/head}}
 
 <body>
+<div class="page-wrapper">
+    <nav class="header-container">
+        <header class="top-bar">
+            <a href="./" class="logo">
+                <img src="./logo.png" alt="logo" width="64">
+            </a>
+            <h1>Finkenavi{{title}}</h1>
+        </header>
+    </nav>
+    <main>
+        <br>
+        <h1>So kommst du zum Ziel:</h1>
 
-{{>layout/header}}
+        {{>layout/map}}
 
-<h1> Navigieren von: {{start}} nach {{goal}}</h1>
-{{>layout/map}}
+        <aside class="route-directions">
+            {{#path}}
+                <div class="direction-step">{{.}}</div>
+            {{/path}}
 
-<aside class="route-directions">
-    {{#path}}
-        <div class="direction-step">{{.}}</div>
-    {{/path}}
+            {{^path}}
+                <p class="error-message">Keine Route gefunden.</p>
+            {{/path}}
+        </aside>
+        <form action="./" method="get">
+            <article class="button-box">
+                <button type="submit" class="route-button">Neue Navigation</button>
+            </article>
+        </form>
+    </main>
 
-    {{^path}}
-        <p class="error-message">Keine Route gefunden.</p>
-    {{/path}}
-</aside>
+    <!--Fußnote, ggf. füllen in ./footer.mustache-->
+    {{>layout/footer}}
 
-<!--Fußnote, ggf. füllen in ./footer.mustache-->
-{{>layout/footer}}
-
+</div>
 </body>
 
 </html>

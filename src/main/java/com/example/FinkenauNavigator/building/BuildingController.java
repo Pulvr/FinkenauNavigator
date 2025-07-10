@@ -13,7 +13,6 @@ import java.util.List;
 @Controller
 public class BuildingController {
 
-
     @Autowired
     private BuildingRepository buildingRepository;
 
@@ -24,6 +23,16 @@ public class BuildingController {
     String landingPage(Model model) {
         Building myBuilding = new Building("Finkenau", buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(1));
         model.addAttribute("allSelectableRooms", myBuilding.getRooms());
+
+        // Titel bleibt leer
+        //model.addAttribute("title", "");
+
+        //Übergabe der Koordinaten des Raums, um die Flagge anzeigen zu lassen
+        model.addAttribute("x", 0.0);
+        model.addAttribute("y", 0.0);
+
+        // Einstellung der Visibility: Versteckt die Flagge im Startscreen
+        model.addAttribute("visibility", "hidden");
 
         return "index";
     }
@@ -36,9 +45,16 @@ public class BuildingController {
         List<String> pathAsStrings = navigationController.convertPathToStringList(path);
         model.addAttribute("path", pathAsStrings);
 
-        //Übergabe Start- und Zielort
-        model.addAttribute("start", startLocation);
-        model.addAttribute("goal", destination);
+        // Anzeige des Weges
+        model.addAttribute("title", " - navigiert dich von " +  startLocation + " zu " + destination);
+
+        //Übergabe der Koordinaten des Raums, an denen die Flagge angezeigt werden soll
+        model.addAttribute("x", buildingRepository.getXCoordinate(destination));
+        model.addAttribute("y", buildingRepository.getYCoordinate(destination));
+
+        // Einstellung der Visibility: Zeigt die Flagge am Ziel an
+        model.addAttribute("visibility", "visible");
+
         return "result";
     }
 }

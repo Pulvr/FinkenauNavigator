@@ -1,24 +1,39 @@
 /* Variablen */
 :root{
+    /*Farben fest:
     --header-color: #5377A9;
+    --background: #384962;*/
+    --header-color: #101010;
     --background: #384962;
     --form-background: aquamarine;
     --text-color-basic: #b0ccff;
+    --text-color-step: #cccccc;
     --button-color: #b0ffb0;
+    --button-color-hover: #ceffce;
+    /*Maße:*/
     --map-height: 42rem;
     --map-width: 64rem;
+}
 
+.page-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body {
     font-family: sans-serif;
     background-color: var(--background);
     margin: 0;
+    padding: 0;
+    height: 100%;
+    flex-direction: column;
 }
 
 main {
     margin-left: 2rem;
     margin-right: 2rem;
+    flex: 1;
 }
 
 /* Möglichkeit, die Karte scrollbar zu machen. Ggf. darauf zurückkommen.
@@ -35,11 +50,17 @@ svg#svg1{
 }
 Ende scrollbare Karte */
 
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .responsive-image {
     width: 100%;
     align-items: center;
     height: auto;
-    max-width: 100%;
+    max-width: 1200px;
     display: block;
     margin: 2rem auto 2rem;
     border-radius: 8px;
@@ -86,7 +107,7 @@ h3{
 .route-button{
     padding: 0.5rem 1rem;
     background-color: var(--button-color);
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 8px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     font-size: 0.95rem;
@@ -120,10 +141,12 @@ h3{
 
 .direction-step {
     padding: 0.5rem 1rem;
+    margin-bottom: 0.65rem;
     background-color: var(--header-color);
-    border: 1px solid #ccc;
+    color: var(--text-color-step);
+    border: 1px solid #000000;
     border-radius: 8px;
-    box-shadow: 0 1px 2px var(--button-color);
+    /*box-shadow: 0 1px 2px var(--button-color);*/
     font-size: 0.95rem;
     text-align: center;
 }
@@ -136,7 +159,7 @@ h3{
 
     .route-directions {
         border-left: none;
-        border-top: 2px solid #ddd;
+        border-top: 2px solid var(--background);
         margin-top: 1rem;
     }
 }

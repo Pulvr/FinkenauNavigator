@@ -5,49 +5,50 @@
 {{>layout/head}}
 
 <body>
+<div class="page-wrapper">
+    <!--Top-Bar mit Logo-->
+    {{>layout/header}}
 
-<!--Top-Bar mit Logo-->
-{{>layout/header}}
+    <!--Suchformular-->
+    <main class="search-form">
 
-<!--Suchformular-->
-<main class="search-form">
+        <!--Grundriss als Vektorgrafik-->
+        {{>layout/map}}
 
-    <!--Grundriss als Vektorgrafik-->
-    {{>layout/map}}
+        <form class="form-section" action="navigate" method="get">
+            <article>
+                <h1>Wo bist du gerade?</h1>
+                <select name="start-location" class="dropdown-menu">
+                    <option value="" disabled selected>Bitte auswählen...</option>
+                    {{#allSelectableRooms}}
+                        <option value="{{name}}">{{name}}</option>
+                    {{/allSelectableRooms}}
+                </select>
+            </article>
 
-    <form class="form-section" action="navigate" method="get">
-        <article>
-            <h1>Wo bist du gerade?</h1>
-            <select name="start-location" class="dropdown-menu">
-                <option value="" disabled selected>Bitte auswählen...</option>
-                {{#allSelectableRooms}}
-                    <option value="{{name}}">{{name}}</option>
-                {{/allSelectableRooms}}
-            </select>
-        </article>
+            <br>
 
-        <br>
+            <article>
+                <h1>Wo willst du hin?</h1>
+                <select name="destination" class="dropdown-menu">
+                    <option value="" disabled selected>Bitte auswählen...</option>
+                    {{#allSelectableRooms}}
+                        <option value="{{name}}">{{name}}</option>
+                    {{/allSelectableRooms}}
+                </select>
+            </article>
+            <br>
+            <br>
+            <article class="button-box">
+                <button type="submit" class="route-button">Let's go</button>
+            </article>
+            <br>
+        </form>
+    </main>
 
-        <article>
-            <h1>Wo willst du hin?</h1>
-            <select name="destination" class="dropdown-menu">
-                <option value="" disabled selected>Bitte auswählen...</option>
-                {{#allSelectableRooms}}
-                    <option value="{{name}}">{{name}}</option>
-                {{/allSelectableRooms}}
-            </select>
-        </article>
-        <br>
-        <br>
-        <article class="button-box">
-            <button type="submit" class="route-button">Let's go</button>
-        </article>
-        <br>
-    </form>
-</main>
+    <!--Fußnote, ggf. füllen in ./footer.mustache-->
+    {{>layout/footer}}
 
-<!--Fußnote, ggf. füllen in ./footer.mustache-->
-{{>layout/footer}}
-
+</div>
 </body>
 </html>
