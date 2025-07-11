@@ -21,27 +21,17 @@ public class BuildingController {
         this.navigationController = navigationController;
     }
 
+    List<Building> allBuildings ;
+
     @GetMapping("/")
     String landingPage(Model model) {
-        Building myBuilding = new Building("Finkenau", buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(1));
-        model.addAttribute("allSelectableRooms", myBuilding.getRooms());
-
-        // Titel bleibt leer
-        //model.addAttribute("title", "");
-
-        //Übergabe der Koordinaten des Raums, um die Flagge anzeigen zu lassen
-        model.addAttribute("x", 0.0);
-        model.addAttribute("y", 0.0);
-
-        // Einstellung der Visibility: Versteckt die Flagge im Startscreen
-        model.addAttribute("visibility", "hidden");
-
+        loadLandingPage(model);
         return "index";
     }
     @PostMapping("/navigate")
     public String resultPage(@RequestParam("start-location") String startLocation, @RequestParam("destination") String destination, Model model) {
-        //Routenschritte berechnen und als Liste zurückgeben lassen
-        List<Room> path = navigationController.findPathBFS(1, startLocation, destination);
+        //Routenschritte berechnen und als Liste zurückgeben lassen, aktuell nur ein Gebäude, also nur für das erste berechnen
+        List<Room> path = navigationController.findPathBFS(allBuildings.getFirst().getID(), startLocation, destination);
         List<String> pathAsStrings = navigationController.convertPathToStringList(path);
         model.addAttribute("path", pathAsStrings);
 
@@ -57,10 +47,27 @@ public class BuildingController {
 
         return "result";
     }
+
     @GetMapping("/navigate")
     String resultPage(Model model){
-        Building myBuilding = new Building("Finkenau", buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(1));
-        model.addAttribute("allSelectableRooms", myBuilding.getRooms());
+        loadLandingPage(model);
         return "index";
+    }
+
+    /**
+     * zwar aktuell nur ein Gebäude, aber immer alle Gebäude durchgehen, rooms per ID adden und dann ins dropdownmenu
+     * @param model
+     */
+    private void loadLandingPage(Model model) {
+        allBuildings = buildingRepository.findAll();
+        for ( Building building : allBuildings){
+            building.setRooms(buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(building.getID()));
+            model.addAttribute("allSelectableRooms",building.getRooms());
+        }
+        model.addAttribute("x", 0.0);
+        model.addAttribute("y", 0.0);
+
+        // Einstellung der Visibility: Versteckt die Flagge im Startscreen
+        model.addAttribute("visibility", "hidden");
     }
 }

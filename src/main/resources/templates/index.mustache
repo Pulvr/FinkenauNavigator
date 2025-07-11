@@ -15,35 +15,48 @@
         <!--Grundriss als Vektorgrafik-->
         {{>layout/map}}
 
-        <form class="form-section" action="navigate" method="post">
+        <form class="form-section" action="./navigate" method="post">
             <article>
                 <h1>Wo bist du gerade?</h1>
-                <select name="start-location" class="dropdown-menu">
+                <select name="start-location" class="dropdown-menu" id="start-location">
                     <option value="" disabled selected>Bitte auswählen...</option>
                     {{#allSelectableRooms}}
                         <option value="{{name}}">{{name}}</option>
                     {{/allSelectableRooms}}
                 </select>
             </article>
-
             <br>
-
             <article>
                 <h1>Wo willst du hin?</h1>
-                <select name="destination" class="dropdown-menu">
+                <select name="destination" class="dropdown-menu" id="destination">
                     <option value="" disabled selected>Bitte auswählen...</option>
                     {{#allSelectableRooms}}
                         <option value="{{name}}">{{name}}</option>
                     {{/allSelectableRooms}}
                 </select>
             </article>
-            <br>
-            <br>
+            <br><br>
             <article class="button-box">
-                <button type="submit" class="route-button">Let's go</button>
+                <button type="submit" class="route-button" id="route-button" disabled>Let's go</button>
             </article>
             <br>
         </form>
+
+        <!--Button nicht klickbar, solange nicht ein Wert gewählt wurde-->
+        <script>
+            const startLocation = document.getElementById('start-location');
+            const destination = document.getElementById('destination');
+            const routeButton = document.getElementById('route-button');
+
+            function updateButtonState() {
+                const startSelected = startLocation.value !== '';
+                const destinationSelected = destination.value !== '';
+                routeButton.disabled = !(startSelected && destinationSelected);
+            }
+
+            startLocation.addEventListener('change', updateButtonState);
+            destination.addEventListener('change', updateButtonState);
+        </script>
     </main>
 
     <!--Fußnote, ggf. füllen in ./footer.mustache-->

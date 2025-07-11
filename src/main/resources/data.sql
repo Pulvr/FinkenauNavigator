@@ -5,7 +5,7 @@ VALUES ('Finkenau');
 -- Ist ein Raum gemäß der Übersichtskarte rechts vom Haupteingang, so ist die ID höher. Ist der Raum links vom Haupteingang, so ist die ID niedriger.
 -- Da die IDs automatisch erhöht werden, reicht es einen Raum also anhand der Relation auf der Karte zu platzieren, eine manuelle Änderung darf nicht gemacht werden!
 -- Flure werden immer vor allen an die verbundenen Räume gesetzt und haben damit die kleinste ID in Bezug auf alle angeschlossenen Räume
-INSERT INTO ROOM(building_id,selectable,name,floor, type, on_left_side, on_right_side, xCoordinate, yCoordinate)
+INSERT INTO ROOM(building_id,selectable,name,floor, type, on_left_side, on_right_side, x_coordinate, y_coordinate)
 VALUES (1,0,'Treppenhaus bei Haupteingang','1','STAIRWAY',1,0, 505.0, 606.0),
        (1,1,'Haupteingang','1','ENTRANCE',1,0, 510.0, 730.0),
        --Alle Räume, die an Flur E27 - E57 angeschlossen sind

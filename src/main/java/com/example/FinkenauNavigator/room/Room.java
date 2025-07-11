@@ -23,7 +23,7 @@ public class Room {
     private double yCoordinate;
 
     @Transient
-    private List<Room> neighbours = new ArrayList<>();
+    private final List<Room> neighbours = new ArrayList<>();
 
     public Room(){
 
