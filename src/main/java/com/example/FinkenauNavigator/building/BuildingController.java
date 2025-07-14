@@ -1,7 +1,7 @@
 package com.example.FinkenauNavigator.building;
 
 import com.example.FinkenauNavigator.navigation.NavigationController;
-import com.example.FinkenauNavigator.room.Room;
+import com.example.FinkenauNavigator.navigation.Navigator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,8 +31,9 @@ public class BuildingController {
     @PostMapping("/navigate")
     public String resultPage(@RequestParam("start-location") String startLocation, @RequestParam("destination") String destination, Model model) {
         //Routenschritte berechnen und als Liste zurückgeben lassen, aktuell nur ein Gebäude, also nur für das erste berechnen
-        List<Room> path = navigationController.findPathBFS(allBuildings.getFirst().getID(), startLocation, destination);
-        List<String> pathAsStrings = navigationController.convertPathToStringList(path);
+        Navigator currentNavigation = new Navigator(startLocation,destination);
+        currentNavigation.setPath(navigationController.findPathBFS(allBuildings.getFirst().getID(), startLocation, destination));
+        List<String> pathAsStrings = navigationController.convertPathToStringList(currentNavigation.getPath());
         model.addAttribute("path", pathAsStrings);
 
         // Anzeige des Weges
@@ -55,12 +56,12 @@ public class BuildingController {
     }
 
     /**
-     * zwar aktuell nur ein Gebäude, aber immer alle Gebäude durchgehen, rooms per ID adden und dann ins dropdownmenu
+     * zwar aktuell nur ein Gebäude, aber immer alle Gebäude durchgehen, alle rooms per Building ID
      * @param model
      */
     private void loadLandingPage(Model model) {
         allBuildings = buildingRepository.findAll();
-        for ( Building building : allBuildings){
+        for (Building building : allBuildings){
             building.setRooms(buildingRepository.findAllSelectableRoomsWithNameFloorByBuildingId(building.getID()));
             model.addAttribute("allSelectableRooms",building.getRooms());
         }

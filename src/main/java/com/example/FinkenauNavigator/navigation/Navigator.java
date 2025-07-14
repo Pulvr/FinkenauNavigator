@@ -1,8 +1,12 @@
 package com.example.FinkenauNavigator.navigation;
 
 
+import com.example.FinkenauNavigator.room.Room;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Table;
+
+import java.util.List;
 
 /**
  * Navigator soll auch so wie ein Navigationsergebnis sein.
@@ -15,11 +19,14 @@ public class Navigator {
     String fromName;
     String toName;
 
+    @Transient
+    List<Room> path;
+
     Navigator() {
 
     }
 
-    Navigator(String fromName, String toName){
+    public Navigator(String fromName, String toName){
         this.fromName = fromName;
         this.toName = toName;
     }
@@ -31,4 +38,13 @@ public class Navigator {
     public String getToName(){
         return this.toName;
     }
+
+    public List<Room> getPath() {
+        return path;
+    }
+
+    public void setPath(List<Room> path) {
+        this.path = path;
+    }
+
 }
