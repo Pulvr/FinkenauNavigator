@@ -3,7 +3,6 @@ package com.example.FinkenauNavigator.navigation;
 import com.example.FinkenauNavigator.building.BuildingRepository;
 import com.example.FinkenauNavigator.room.Room;
 import com.example.FinkenauNavigator.room.RoomType;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.*;
@@ -14,7 +13,6 @@ public class NavigationController {
     private final NavigationRepository navigationRepository;
     private final BuildingRepository buildingRepository;
 
-    @Autowired
     public NavigationController(BuildingRepository buildingRepository, NavigationRepository navigationRepository) {
         this.buildingRepository = buildingRepository;
         this.navigationRepository = navigationRepository;
@@ -35,10 +33,10 @@ public class NavigationController {
         for(Navigator nav : allConnections){
             from = roomMap.get(nav.getFromName());
             to = roomMap.get(nav.getToName());
-            if(from != null && !from.neighbours.contains(to)){
+            if(from != null && !from.getNeighbours().contains(to)){
                 from.addNeighbour(to);
             }
-            if(to != null && !to.neighbours.contains(from)){
+            if(to != null && !to.getNeighbours().contains(from)){
                 to.addNeighbour(from);
             }
         }
@@ -82,7 +80,7 @@ public class NavigationController {
             }
 
             // Nachbarn prüfen und in Queue aufnehmen
-            for (Room neighbour : current.neighbours) {
+            for (Room neighbour : current.getNeighbours()) {
                 if (!visitedRooms.contains(neighbour)) {
                     visitedRooms.add(neighbour);
                     parentMap.put(neighbour, current);
@@ -113,12 +111,9 @@ public class NavigationController {
             //Startraum → Flur
             if (path.get(i).getRoomType() == RoomType.ROOM && path.get(i + 1).getRoomType() == RoomType.FLOOR) {
                 if (path.getLast().getId() > path.get(i).getId() && path.get(i).isOnRightSide()) {
-                    if (path.getLast().getName().equals("Eingang E57")) {
-                        result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
-                    } else {
-                        result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
-                    }
-                } else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnRightSide()) {
+                    result.add(String.format(roomToFloor, path.get(i).getName(), "rechts"));
+                }
+                else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnRightSide()) {
                     result.add(String.format(roomToFloor, path.get(i).getName(), "links"));
                 }
                 else if (path.getLast().getId() < path.get(i).getId() && path.get(i).isOnLeftSide()) {
