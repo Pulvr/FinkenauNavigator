@@ -21,7 +21,7 @@ h1 {
     flex: 0 0 auto;
     background-color: var(--header-color);
 }
-
+/*
 @media (max-width: 768px){
     height: 60% !important;
 }

@@ -12,7 +12,7 @@
     --button-color-hover: #ceffce;
     /*Maße:*/
     --map-height: 42rem;
-    --map-width: 64rem;
+    --map-width: 76rem;
 }
 
 .page-wrapper{
@@ -31,24 +31,28 @@ body {
 }
 
 main {
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin-left: 0;
+    margin-right: 0;
     flex: 1;
 }
 
-/* Möglichkeit, die Karte scrollbar zu machen. Ggf. darauf zurückkommen.
-div#svg-container{
-    height: 16rem;
-    width: 16rem;
-    border:2px solid #000;
-    overflow: scroll;
-    scroll-behavior: smooth;
+
+#svg-container{
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0 auto;
 }
-svg#svg1{
-    height: var(--map-height);
-    width: var(--map-width);
+
+figure {
+    display: block;
+    margin-block-start: -1em;
+    margin-block-end: 1em;
+    margin-inline-start: -1em;
+    margin-inline-end: 0;
+    unicode-bidi: isolate;
 }
-Ende scrollbare Karte */
 
 .centered{
     display: flex;
@@ -58,12 +62,16 @@ Ende scrollbare Karte */
 
 .responsive-image {
     width: 100%;
-    align-items: center;
+    max-width: 100%;
     height: auto;
-    max-width: 1200px;
     display: block;
-    margin: 2rem auto 2rem;
-    border-radius: 8px;
+    margin: 0 auto 0;
+}
+
+svg.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .dropdown-menu {
@@ -77,10 +85,6 @@ Ende scrollbare Karte */
 
 h2, h3, h6 {
     text-align: center;
-    color: var(--text-color-basic);
-}
-
-h3{
     color: var(--text-color-basic);
 }
 
@@ -112,6 +116,7 @@ h3{
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     font-size: 0.95rem;
     text-align: center;
+    min-width: 220px;
 }
 
 .route-button:hover {
@@ -153,13 +158,27 @@ h3{
 
 /* Responsive design for smartphone and tablet */
 @media (max-width: 768px) {
+
     .search-form {
         flex-direction: column;
     }
+
 
     .route-directions {
         border-left: none;
         border-top: 2px solid var(--background);
         margin-top: 1rem;
+    }
+
+    #svg-container{
+        max-width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+/* Nur auf großen Bildschirmen wird die Karte fest skaliert */
+@media (min-width: 1200px){
+    .responsive-image {
+        max-width: 80%;
     }
 }
