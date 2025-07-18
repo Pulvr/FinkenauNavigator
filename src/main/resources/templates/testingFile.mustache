@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pfad Ergebnis</title>
+</head>
+<body>
+<h1>Gefundener Pfad</h1>
+
+{{#path}}
+    <ul>
+        <li>{{.}}</li>
+    </ul>
+{{/path}}
+
+{{^path}}
+    <p>Kein Pfad gefunden.</p>
+{{/path}}
+
+<a href="/">Zurück zur Startseite</a>
+</body>
+</html>

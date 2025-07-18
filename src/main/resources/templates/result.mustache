@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Ergebnis</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
+<html lang="de">
+<link rel="stylesheet" href="./styles.css">
+
+{{>layout/head}}
 
 <body>
-    <h1> Navigieren von : {{Start}} nach {{Goal}}</h1>
+<div class="page-wrapper">
+    <nav class="header-container">
+        <header class="top-bar">
+            <a href="./" class="logo">
+                <img src="./logo.png" alt="logo" width="64">
+            </a>
+            <h1>Finkenavi{{title}}</h1>
+        </header>
+    </nav>
+    <main>
+
+        {{>layout/map}}
+
+        <aside class="route-directions">
+            {{#path}}
+                <div class="direction-step">{{.}}</div>
+            {{/path}}
+
+            {{^path}}
+                <p class="error-message">Keine Route gefunden.</p>
+            {{/path}}
+        </aside>
+        <form action="./" method="get">
+            <article class="button-box">
+                <button type="submit" class="route-button">Neue Navigation</button>
+            </article>
+            <br>
+        </form>
+    </main>
+
+    <!--Fußnote, ggf. füllen in ./footer.mustache-->
+    {{>layout/footer}}
+
+</div>
 </body>
 
 </html>

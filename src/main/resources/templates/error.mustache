@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>ERROR</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="icon" type="image/x-icon" href="./logo.png">
+</head>
+<body>
+<div class="page-wrapper">
+    {{>layout/header}}
+    <main>
+        <br>
+        <h1 class="centered">An ERROR has occurred :(</h1>
+        <br>
+        <br>
+        <h3>An error occurred on this page, please check back later or contact the admin.</h3>
+        <h3>The site you were looking for may not exist.</h3>
+        <br>
+        <br>
+        <br>
+        <h3>More Information for you or the administratorS of this page:</h3>
+        <h3>Status Message: {{status}}</h3>
+        <h3>Error: {{error}}</h3>
+        <h3>{{message}}</h3>
+    </main>
+
+    <footer>
+        {{>layout/footer}}
+    </footer>
+</div>
+</body>
+
+
+</html>

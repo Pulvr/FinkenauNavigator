@@ -1,0 +1,11 @@
+footer {
+    margin-top: auto;
+}
+
+.footer-container{
+    background-color: var(--header-color);
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+}

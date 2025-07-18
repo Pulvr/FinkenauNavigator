@@ -1,32 +1,77 @@
-/* Base Styles */
+/* Variablen */
+:root{
+    /*Farben fest:
+    --header-color: #5377A9;
+    --background: #384962;*/
+    --header-color: #101010;
+    --background: #384962;
+    --form-background: aquamarine;
+    --text-color-basic: #b0ccff;
+    --text-color-step: #cccccc;
+    --button-color: #b0ffb0;
+    --button-color-hover: #ceffce;
+    /*Maße:*/
+    --map-height: 42rem;
+    --map-width: 76rem;
+}
+
+.page-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 body {
     font-family: sans-serif;
+    background-color: var(--background);
     margin: 0;
+    padding: 0;
+    height: 100%;
+    flex-direction: column;
+}
+
+main {
+    margin-left: 0;
+    margin-right: 0;
+    flex: 1;
+}
+
+
+#svg-container{
+    width: 100%;
+    max-width: 100%;
     padding: 1rem;
-    background-color: #f0f0f0;
+    overflow-x: auto;
+    margin: 0 auto;
 }
 
-header {
-    background-color: #121357;
-    padding-bottom: 7rem;
-    border-radius: 2px;
+figure {
+    display: block;
+    margin-block-start: -1em;
+    margin-block-end: 1em;
+    margin-inline-start: -1em;
+    margin-inline-end: 0;
+    unicode-bidi: isolate;
 }
 
-
-footer {
-    margin-top: 1rem;
-    padding-top: 7rem;
-    background-color: #121357;
+.centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .responsive-image {
-    margin: 2rem auto 2rem;
     width: 100%;
-    align-items: center;
-    height: auto;
     max-width: 100%;
+    height: auto;
     display: block;
-    border-radius: 8px;
+    margin: 0 auto 0;
+}
+
+svg.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .dropdown-menu {
@@ -38,33 +83,55 @@ footer {
     color: #00000098;
 }
 
-h1, h2 {
+h2, h3, h6 {
     text-align: center;
+    color: var(--text-color-basic);
 }
 
-.main-layout {
+.search-form {
     display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .form-section {
     flex: 1;
-    min-width: 280px;
+    min-width: 240px;
+    max-width: 1080px;
+}
+
+.button-box{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.route-button{
+    padding: 0.5rem 1rem;
+    background-color: var(--button-color);
+    border: 1px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+    text-align: center;
+    min-width: 220px;
+}
+
+.route-button:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .route-directions {
     width: 100%;
     max-width: 320px;
     padding: 1rem;
-    background-color: #f9f9f9;
     border-radius: 8px;
     overflow-y: auto;
     flex-shrink: 0;
     box-sizing: border-box;
-    margin: 0 auto; /* Center on smaller screens too */
+    margin: 0 auto;
 }
 
 .directions-container {
@@ -79,23 +146,39 @@ h1, h2 {
 
 .direction-step {
     padding: 0.5rem 1rem;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
+    margin-bottom: 0.65rem;
+    background-color: var(--header-color);
+    color: var(--text-color-step);
+    border: 1px solid #000000;
     border-radius: 8px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    /*box-shadow: 0 1px 2px var(--button-color);*/
     font-size: 0.95rem;
     text-align: center;
 }
 
-/* Responsive layout for small screens */
+/* Responsive design for smartphone and tablet */
 @media (max-width: 768px) {
-    .main-layout {
+
+    .search-form {
         flex-direction: column;
     }
 
+
     .route-directions {
         border-left: none;
-        border-top: 2px solid #ddd;
+        border-top: 2px solid var(--background);
         margin-top: 1rem;
+    }
+
+    #svg-container{
+        max-width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+/* Nur auf großen Bildschirmen wird die Karte fest skaliert */
+@media (min-width: 1200px){
+    .responsive-image {
+        max-width: 80%;
     }
 }
